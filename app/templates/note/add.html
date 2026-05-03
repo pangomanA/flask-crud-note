@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Add New Note{% endblock %}
+
+{% block header %}
+  <h2>Create a New Note</h2>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="title">Title</label>
+    <input name="title" id="title" value="{{ request.form['title'] }}" required>
+
+    <label for="body">Body</label>
+    <textarea name="body" id="body" rows="5" required>{{ request.form['body'] }}</textarea>
+
+    <button type="submit">Save Note</button>
+  </form>
+{% endblock %}

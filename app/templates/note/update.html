@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% block title %}Edit Note{% endblock %} {% block
+header %}
+<h2>Edit Note</h2>
+{% endblock %} {% block content %}
+<form method="post" class="note-form">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <!-- We use the value attribute to show the current title -->
+    <input
+      name="title"
+      id="title"
+      value="{{ request.form['title'] or note.title }}"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="body">Body</label>
+    <!-- Textareas don't use 'value', you put the text between the tags -->
+    <textarea name="body" id="body" required>
+{{ request.form['body'] or note.body }}</textarea
+    >
+  </div>
+
+  <div class="form-actions">
+    <button type="submit" class="btn">Save Changes</button>
+    <a href="{{ url_for('note.index') }}" class="btn-secondary">Cancel</a>
+  </div>
+</form>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %} {% block title %}All Notes{% endblock %} {% block
+header %}
+<h2>Your Notes</h2>
+{% endblock %} {% block content %} {% if notes %}
+<div class="notes-grid">
+  {% for note in notes %}
+  <article class="note">
+    <div class="note-header">
+      <h3>{{ note.title }}</h3>
+      <a href="{{ url_for('note.update_note', id=note.uid) }}" class="btn-edit">Edit</a>
+      <!-- Tiny delete form -->
+      <form
+        action="{{ url_for('note.delete', id=note.uid) }}"
+        method="POST"
+        style="display: inline"
+      >
+        <button
+          type="submit"
+          class="btn-delete"
+          onclick="return confirm('Delete this note?');"
+        >
+          &times;
+        </button>
+      </form>
+    </div>
+    <p>{{ note.body }}</p>
+  </article>
+  {% endfor %}
+</div>
+{% else %}
+<p>No notes found. Create one to get started!</p>
+{% endif %} {% endblock %}
