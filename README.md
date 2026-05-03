@@ -26,4 +26,4 @@ A responsive, dark-themed web application for managing personal notes. Developed
 
 Ensure you have `uv` installed, then run:
 ```bash
-uv run python app.py
+uv run python run.py
