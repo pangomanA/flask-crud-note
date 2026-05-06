@@ -7,7 +7,9 @@ header %}
   <article class="note">
     <div class="note-header">
       <h3>{{ note.title }}</h3>
-      <a href="{{ url_for('note.update_note', id=note.uid) }}" class="btn-edit">Edit</a>
+      <a href="{{ url_for('note.update_note', id=note.uid) }}" class="btn-edit"
+        >Edit</a
+      >
       <!-- Tiny delete form -->
       <form
         action="{{ url_for('note.delete', id=note.uid) }}"
@@ -24,6 +26,9 @@ header %}
       </form>
     </div>
     <p>{{ note.body }}</p>
+    <small class="note-date">
+      Created: {{ note.created.strftime('%b %d, %Y %H:%M') }}
+    </small>
   </article>
   {% endfor %}
 </div>

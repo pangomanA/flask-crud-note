@@ -179,3 +179,11 @@ button:hover {
 .btn-edit {
   color: green;
 }
+.note-date {
+    display: block;
+    margin-top: 12px;
+    padding-top: 8px;
+    border-top: 1px solid #eee; /* Adds a subtle divider line */
+    color: #888;
+    font-size: 0.8rem;
+}
